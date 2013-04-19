@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="fr"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="fr"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="fr"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8" />
+
+        <meta name="viewport" content="width=device-width" />
+
+        <title>Welcome to Analytics | Connexion</title>
+
+        <!-- Included CSS Files (Compressed) -->
+        <link rel="stylesheet" href="{{ asset('bundles/manymulesfoundation/css/foundation.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('bundles/toakanalytics/css/app.css') }}">
+
+        <!-- IE Fix for HTML5 Tags -->
+        <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+    </head>
+    <body>
+
+        <div class="row">
+            
+            <div class="five columns centered">
+
+                
+
+                <form action="{{ path('login_check') }}" method="post" class="form-horizontal">
+
+                <fieldset>
+                    <legend>Connexion</legend>
+                    
+                    <label for="login_username" class="control-label">Email:</label>
+                    <input type="text" id="login_username" name="_username" value="{{ last_username }}" placeholder="Votre adresse email"/>
+
+                    <label for="login_password" class="control-label">Mot de passe:</label>
+                    <input type="password" id="login_password" name="_password" placeholder="Votre mot de passe"/>
+
+                </fieldset>
+
+                {% if error %}
+
+                    <div class="alert-box alert">
+                    
+                        {{ error.message }}
+
+                        <a href="" class="close">&times;</a>
+
+                    </div>
+
+                {% endif %}
+
+                <div class="row">
+                    <div class="five columns centered">
+                        <button type="submit" class="button">S'authentifier</button>
+                    </div>
+                </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <footer class="row">
+            <div class="twelve columns">
+                <hr />
+                <div class="row">
+                    <div class="six columns">
+                        <p>&copy; Copyright <a href="http://www.cupcake.fr/" target="blank">Cupcake</a>.</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+  
+        <!-- Included JS Files (Compressed) -->
+        <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script type="text/javascript" src="{{ asset('bundles/manymulesfoundation/js/foundation.min.js') }}"></script>
+        <!-- Initialize JS Plugins -->
+        <script type="text/javascript" src="{{ asset('bundles/toakanalytics/js/app.js') }}"></script>
+    </body>
+</html>
+
+
+{% block container %}
+
+
+{% endblock container %}

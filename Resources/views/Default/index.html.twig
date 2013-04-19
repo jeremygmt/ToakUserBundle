@@ -1,0 +1,50 @@
+{% extends '::layout.html.twig' %}
+
+{% block title -%}
+    {{ parent() }}
+Liste Utilisateur
+{%- endblock %}
+
+{% block container %}
+
+<div class="row">
+    <div class="eleven columns" id="main-title">
+        <h1>Utilisateurs</h1>
+    </div>
+    
+    <div class="one columns">
+        <a href="{{ path('user_new') }}" class="button small success">Nouveau</a>
+    </div>
+    <hr /> 
+    
+</div>
+
+<div class="row">
+    <table class="twelve">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Isactive</th>
+                <th>Isadmin</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('user_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.email }}</td>
+                <td>{{ entity.isActive }}</td>
+                <td>{{ entity.isAdmin }}</td>
+                <td>
+                    <a href="{{ path('user_show', { 'id': entity.id }) }}" class="button tiny radius">show</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+{% endblock container %}

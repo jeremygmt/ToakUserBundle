@@ -1,0 +1,39 @@
+{% extends '::layout.html.twig' %}
+{% block title -%}
+    {{ parent() }}
+Nouvel Utilisateur
+{%- endblock %}
+
+{% block container %}
+<div class="row">
+    <div class="twelve column" id="main-title">
+        <h1>Nouvel Utilisateur</h1>
+        <hr />
+    </div>
+</div>
+
+<div class="row">
+    <div class="nine columns">
+        
+        <form action="{{ path('user_create') }}" method="post" {{ form_enctype(form) }} class="form-horizontal">            
+            {{ form_widget(form) }}
+            <div class="control-group">
+                <div class="controls">
+                    <button type="submit" class="button">Créer</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="three columns">
+        <div class="panel">
+            <h5>Actions</h5>
+            <a href="{{ path('user') }}" class="button secondary small">Retourner à la liste</a>
+        </div>
+       
+    </div>
+</div>
+
+
+
+
+{% endblock container %}

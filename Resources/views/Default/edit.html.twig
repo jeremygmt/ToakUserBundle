@@ -1,0 +1,42 @@
+{% extends '::layout.html.twig' %}
+
+{% block title -%}{{ parent() }}Mon profil{%- endblock %}
+
+{% block container %}
+<div class="row" id="main-title">
+    <div class="twelve column">
+        <h1>{{ user.email }}</h1>
+    </div>
+    <hr />
+</div>
+
+<div class="row">
+    <div class="twelve columns">
+        <div id="flash" title="{{ url('flash') }}">
+            
+            {% render "ToakAnalyticsBundle:Default:flash" %}
+
+        </div>
+    </div>
+</div>
+
+<div class="row">
+
+    <div class="twelve columns">
+        
+        <form action="{{ path('user_edit', { 'id' : user.id }) }}" method="post" {{ form_enctype(form) }} class="form-horizontal">            
+            {{ form_widget(form) }}
+            <div class="control-group">
+                <div class="controls">
+                    <button type="submit" class="button">Modifier</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+
+
+
+{% endblock container %}
